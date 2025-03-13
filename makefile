@@ -9,4 +9,4 @@ output/%.output: scripts/%.py
 
 .PHONY: clean
 clean: 
-	rm $(OUTPUT)
+	rm output/*.output
