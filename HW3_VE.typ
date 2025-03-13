@@ -22,3 +22,17 @@ Run your program 6 times and record the
 outcomes.
 
 #py_script("02")
+
+== Problem 3
+
+For each of the following initial value problems, solve using the Euler Method and either sketch or copy/paste a graph of the result over the given interval.
+Use a step size small enough that continuing to lower the step size further yields no noticeable change in the appearance of the graph.
+
+=== Part a
+
+$y' = (x-y)^2$ subject to $y(0) = 0.5$ for $0 < x < 2$
+
+=== Part b
+
+$y' = sin(x + y^2)$ subject to $y(-pi) = 0.1$ for $-pi < x < 2pi$
+
