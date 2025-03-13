@@ -15,4 +15,10 @@ Write out or copy/paste the code.
 
 == Problem 2
 
+One of the simplest ways to numerically calculate definite integrals is with Monte Carlo integration.
+Write a program that will approximately integrate the function $f(x) = e^(-1/2 x^2)$ from $0 < x < 1$ by choosing 100 points $(x, y)$ in the square $0 < x < 1$ and $0 < y < 1$ with random coordinates, counting how many of them lie under the curve, and dividing by the total number of points.
+Write out or copy/paste the code.
+Run your program 6 times and record the
+outcomes.
+
 #py_script("02")
