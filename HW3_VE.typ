@@ -5,6 +5,15 @@
   date: datetime(year: 2025, month: 3, day: 24),
 )
 
+= Euler Method
+
+$
+(d y)/(d x) &= f(x, y) \
+y(x_(i+1)) &approx y(x_i) + h dot f(x_i, y_i)
+$
+
+#py_script("euler_method")
+
 = Problem 1
 
 Write a program that utilizes a while-loop to return the square root of an arbitrary positive number to the nearest whole number; i.e. find the largest integer who’s square is less than the given number, and compare to the square of the next integer.
