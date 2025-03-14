@@ -14,6 +14,15 @@
     author: author_name,
   )
 
+  // Page size and numbering
+  set page(
+    "us-letter",
+    header: align(right)[
+      #author.last_name
+      #context counter(page).display("1")
+    ],
+  )
+
   // Style raw blocks
   show raw: it => block(fill: rgb("#E6E6E6"), inset: 1em, width: 100%, it)
 
