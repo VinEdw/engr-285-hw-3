@@ -1,12 +1,22 @@
 #let conf(
   doc,
   title: [Clever Title],
+  author: (
+    first_name: "First",
+    last_name: "Last",
+  ),
 ) = {
+  let author_name = author.first_name + " " + author.last_name
   // Style raw blocks
   show raw: it => block(fill: rgb("#E6E6E6"), inset: 1em, width: 100%, it)
 
   // Title
-  text(17pt, weight: "bold", title)
+  stack(
+    dir: direction.ttb,
+    spacing: 1em,
+    text(17pt, weight: "bold", title),
+    text(14pt, author_name),
+  )
   // Main Document
   doc
 }

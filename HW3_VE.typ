@@ -1,6 +1,7 @@
 #import "engr-conf.typ": conf, py_script
 #show: conf.with(
   title: [ENGR 285 --- Homework 3],
+  author: (first_name: "Vincent", last_name: "Edwards"),
 )
 
 = Problem 1
