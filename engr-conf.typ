@@ -5,6 +5,7 @@
     first_name: "First",
     last_name: "Last",
   ),
+  date: datetime.today(),
 ) = {
   // Document Metadata
   let author_name = author.first_name + " " + author.last_name
@@ -22,6 +23,7 @@
     spacing: 1em,
     text(17pt, weight: "bold", title),
     text(14pt, author_name),
+    text(14pt, date.display("[month repr:long] [day padding:none], [year]")),
   )
   // Main Document
   doc
