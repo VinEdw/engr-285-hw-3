@@ -6,7 +6,13 @@
     last_name: "Last",
   ),
 ) = {
+  // Document Metadata
   let author_name = author.first_name + " " + author.last_name
+  set document(
+    title: title,
+    author: author_name,
+  )
+
   // Style raw blocks
   show raw: it => block(fill: rgb("#E6E6E6"), inset: 1em, width: 100%, it)
 
