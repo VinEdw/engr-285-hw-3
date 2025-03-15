@@ -12,8 +12,7 @@ $
 y(x_(i+1)) &approx y(x_i) + h dot f(x_i, y_i)
 $
 
-*euler_method.py*
-#py_script("euler_method")
+#py_script("euler_method", put_fname: true)
 
 = Problem 1
 

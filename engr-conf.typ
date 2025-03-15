@@ -38,12 +38,15 @@
   doc
 }
 
-#let py_script(fname) = {
+#let py_script(fname, put_fname: false) = {
   set raw(block: true)
 
   let script = read("scripts/" + fname + ".py")
   let output = read("output/" + fname + ".output")
 
+  if (put_fname) {
+    strong(fname + ".py")
+  }
   raw(script, lang: "python")
 
   if (output.len() != 0) {
