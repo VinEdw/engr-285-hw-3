@@ -1,5 +1,5 @@
 import numpy as np
-rng = np.random.default_rng()
+rng = np.random.default_rng(seed=285)
 
 def f(x):
     return np.exp(-x**2 / 2)
