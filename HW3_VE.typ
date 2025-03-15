@@ -41,25 +41,27 @@ Use a step size small enough that continuing to lower the step size further yiel
 == Part a
 
 #let eq = $y' = (x-y)^2$
+#let point = $y(0) = 0.5$ 
 
-#eq subject to $y(0) = 0.5$ for $0 < x < 2$
+#eq subject to #point for $0 < x < 2$
 
 #py_script("03_a")
 #figure(
   image("media/03_a.svg", width: 80%),
-  caption: [Graph of the solution to #eq],
+  caption: [Graph of the solution to #eq subject to #point],
 )
 
 == Part b
 
 #let eq = $y' = sin(x + y^2)$
+#let point = $y(-pi) = 0.1$ 
 
-#eq subject to $y(-pi) = 0.1$ for $-pi < x < 2pi$
+#eq subject to #point for $-pi < x < 2pi$
 
 #py_script("03_b")
 #figure(
   image("media/03_b.svg", width: 80%),
-  caption: [Graph of the solution to #eq],
+  caption: [Graph of the solution to #eq subject to #point],
 )
 
 = Problem 4
