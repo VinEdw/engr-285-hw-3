@@ -67,7 +67,7 @@ Use a step size small enough that continuing to lower the step size further yiel
 = Problem 4
 
 For each of the following initial value problems, first solve for $y(x)$ by separating the equation.
-Then use the Euler Method to determine an estimate for the minimum step size such that $y(4)$ is accurate to less than 1%.
+Then use the Euler Method to determine an estimate for the maximum step size such that $y(4)$ is accurate to less than 1%.
 (i.e. run an Euler Method program repeatedly, decreasing step size each time, until the calculated value of $y(4)$ is less than 1% different from the exact answer)
 
 == Part a
