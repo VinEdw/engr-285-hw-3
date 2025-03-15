@@ -61,3 +61,35 @@ Use a step size small enough that continuing to lower the step size further yiel
   image("media/03_b.svg", width: 80%),
   caption: [Graph of the solution to #eq],
 )
+
+= Problem 4
+
+For each of the following initial value problems, first solve for $y(x)$ by separating the equation.
+Then use the Euler Method to determine an estimate for the minimum step size such that $y(4)$ is accurate to less than 1%.
+(i.e. run an Euler Method program repeatedly, decreasing step size each time, until the calculated value of $y(4)$ is less than 1% different from the exact answer)
+
+== Part a
+
+$2y' = tan y$ subject to $y(0) = 0.05$
+
+$2y' &= tan(y) \
+(d y)/(d x) &= 1/2 tan(y) \
+(d y)/(tan(y)) &= 1/2 d x \
+integral cot(y) d y &= integral 1/2 d x \
+ln(sin(y)) &= 1/2 x + C \
+sin(y) &= C e^(1/2 x) \
+y &= sin^(-1)(C e^(1/2 x)) \
+\
+underline(y(0) = 0.05) \
+0.05 &= sin^(-1)(C e^(1/2 (0))) \
+C &= sin(0.05) \
+\
+y &= sin^(-1)(sin(0.05) e^(1/2 x)) \
+y(4) &= sin^(-1)(sin(0.05) e^(1/2 (4))) \
+y(4) &= sin^(-1)(sin(0.05) e^(2)) approx 0.3783 \
+$
+
+#py_script("04_a")
+
+== Part b
+
