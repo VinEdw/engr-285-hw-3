@@ -81,12 +81,14 @@ integral cot(y) d y &= integral 1/2 d x \
 ln(sin(y)) &= 1/2 x + C \
 sin(y) &= C e^(1/2 x) \
 y &= sin^(-1)(C e^(1/2 x)) \
-\
-underline(y(0) = 0.05) \
+$
+
+$underline(y(0) = 0.05) \
 0.05 &= sin^(-1)(C e^(1/2 (0))) \
 C &= sin(0.05) \
-\
-y &= sin^(-1)(sin(0.05) e^(1/2 x)) \
+$
+
+$y &= sin^(-1)(sin(0.05) e^(1/2 x)) \
 y(4) &= sin^(-1)(sin(0.05) e^(1/2 (4))) \
 y(4) &= sin^(-1)(sin(0.05) e^(2)) approx 0.3783 \
 $
