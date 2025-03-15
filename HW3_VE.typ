@@ -52,5 +52,12 @@ Use a step size small enough that continuing to lower the step size further yiel
 
 == Part b
 
-$y' = sin(x + y^2)$ subject to $y(-pi) = 0.1$ for $-pi < x < 2pi$
+#let eq = $y' = sin(x + y^2)$
 
+#eq subject to $y(-pi) = 0.1$ for $-pi < x < 2pi$
+
+#py_script("03_b")
+#figure(
+  image("media/03_b.svg", width: 80%),
+  caption: [Graph of the solution to #eq],
+)
