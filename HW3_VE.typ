@@ -40,7 +40,15 @@ Use a step size small enough that continuing to lower the step size further yiel
 
 == Part a
 
-$y' = (x-y)^2$ subject to $y(0) = 0.5$ for $0 < x < 2$
+#let eq = $y' = (x-y)^2$
+
+#eq subject to $y(0) = 0.5$ for $0 < x < 2$
+
+#py_script("03_a")
+#figure(
+  image("media/03_a.svg", width: 80%),
+  caption: [Graph of the solution to #eq],
+)
 
 == Part b
 
