@@ -70,6 +70,8 @@ For each of the following initial value problems, first solve for $y(x)$ by sepa
 Then use the Euler Method to determine an estimate for the maximum step size such that $y(4)$ is accurate to less than 1%.
 (i.e. run an Euler Method program repeatedly, decreasing step size each time, until the calculated value of $y(4)$ is less than 1% different from the exact answer)
 
+#py_script("problem_04", put_fname: true)
+
 == Part a
 
 $2y' = tan y$ subject to $y(0) = 0.05$

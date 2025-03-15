@@ -1,4 +1,4 @@
-import euler_method
+import problem_04
 import numpy as np
 
 def f(x, y):
@@ -11,7 +11,7 @@ y_0 = 0.05
 y_true = np.asin(np.sin(0.05) * np.exp(2))
 threshold = 0.01
 
-h, y_estimate, relative_error = euler_method.maximize_h_within_error(x_0, x_f, y_0, f, y_true, threshold)
+h, y_estimate, relative_error = problem_04.maximize_h_within_error(x_0, x_f, y_0, f, y_true, threshold)
 
 if h is None:
     print("Estimates do not get close enough to the true value as h decreases")
