@@ -99,3 +99,32 @@ $
 
 == Part b
 
+$6 y y' = x sin(y^2)$ subject to $y(0) = 1.5$
+
+$6 y y' &= x sin(y^2) \
+(d y)/(d x) &= (x sin(y^2)) / (6 y) \
+y / sin(y^2) d y &= x / 6 d x \
+integral y / sin(y^2) d y &= integral x / 6 d x \
+integral y csc(y^2) d y &= integral x / 6 d x \
+-1/2 sinh^(-1)(cot(y^2)) &= 1/12 x^2 + C \
+sinh^(-1)(cot(y^2)) &= -1/6 x^2 + C \
+cot(y^2) &= sinh(-1/6 x^2 + C) \
+y^2 &= cot^(-1)[sinh(C - 1/6 x^2)] \
+y &= plus.minus sqrt(cot^(-1)[sinh(C - 1/6 x^2)]) \
+y &= sqrt(cot^(-1)[sinh(C - 1/6 x^2)]) \
+$
+
+$underline(y(0) = 1.5) \
+1.5 &= plus.minus sqrt(cot^(-1)[sinh(C - 1/6 (0)^2)]) \
+2.25 &= cot^(-1)[sinh(C)] \
+cot(2.25) &= sinh(C) \
+C &= sinh^(-1)(cot(2.25)) \
+$
+
+$y &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 1/6 x^2)]) \
+y(4) &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 1/6 (4)^2)]) \
+y(4) &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 8/3)]) approx 1.7536 \
+$
+
+#py_script("04_b")
+
