@@ -210,3 +210,35 @@ $
 ]
 
 #py_script("06")
+
+= Problem 7
+
+In this problem you'll code a simple simulation of a baseball at-bat.
+Suppose a baseball pitcher will throw a pitch into the strikezone 50% of the time, and the batter will swing at a pitch 50% of the time.
+When the pitch is in the strikezone (and the batter swings), the batter hits in-field 40% of the time, hits a foul ball 30% of the time, and misses 30% of the time.
+If the pitch is not in the strikezone (and the batter swings), these probabilities change to 15%, 35%, and 50% respectively.
+The following is a list of the at-bat rules of baseball:
+
+- Batters start the at-bat with 0 "strikes" and 0 "balls".
+- If the batter swings and misses, they add a strike.
+- If the pitch is in the strikezone and the batter doesn't swing, they add a strike.
+- If the pitch is out of the strikezone and the batter doesn't swing, they add a ball.
+- If the batter hits a foul ball, they add a strike unless they are at 2 strikes (if they are, nothing happens and the at-bat continues).
+- The at-bat ends with an in-field hit, or when the batter reaches 3 strikes (a strikeout), or when the batter reaches 4 balls (a walk).
+
+#[
+  #set enum(numbering: "a)")
+
+  + Write a program using a while-loop that will simulate a complete at-bat according to the probabilities and rules above.
+    Your program should output the total number of pitches, the total number of foul balls, and the result of the at-bat.
+  + Convert the while-loop portion of your code into a function, and then build a program that will use the function 100 times and then use the results to calculate the following statistics for at-bats:
+
+    - The average number of pitches
+    - The average number of foul balls
+    - The overall probability that the at-bat will result in an in-field hit
+    - The overall probability that the at-bat will result in a strikeout
+    - The overall probability that the at-bat will result in a walk
+]
+
+#py_script("07")
+
