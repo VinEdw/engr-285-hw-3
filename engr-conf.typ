@@ -45,12 +45,12 @@
   let output = read("output/" + fname + ".output")
 
   if (put_fname) {
-    strong(fname + ".py")
+    block(sticky: true)[*#fname\.py*]
   }
   raw(script, lang: "python")
 
   if (output.len() != 0) {
-    strong[Output:]
+    block(sticky: true)[*Output:*]
     raw(output)
   }
 }
