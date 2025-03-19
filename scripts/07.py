@@ -25,7 +25,7 @@ def simulate_swing_decision(p_swing):
 def simulate_swing_result(p_results):
     """
     Return an integer representing the result of the swing.
-    p_results is a list containing the probabilities each result:
+    p_results is a list containing the probabilities of each possible result:
     - in-field hit
     - foul ball
     - miss
