@@ -45,20 +45,20 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
     - pitches
     - foul_balls
     - result (an integer representing an in-field hit, a strikeout, or a miss)
+    - strikes
+    - balls
     """
-    strikes = 0
-    balls = 0
     strike_limit = 3
     ball_limit = 4
+
+    strikes = 0
+    balls = 0
+    pitches = 0
+    foul_balls = 0
     successful_hit = False
-    outcome = {
-        "pitches": 0,
-        "foul_balls": 0,
-        "result": None,
-    }
 
     while (strikes < strike_limit) and (balls < ball_limit) and not successful_hit:
-        outcome["pitches"] += 1
+        pitches += 1
         pitch_in_strikezone = simulate_pitch(p_strikezone)
         batter_swings = simulate_swing_decision(p_swing)
         if batter_swings:
@@ -70,7 +70,7 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
             if swing_result == IN_FIELD_HIT:
                 successful_hit = True
             elif swing_result == FOUL_BALL:
-                outcome["foul_balls"] += 1
+                foul_balls += 1
                 if strikes < strike_limit - 1: strikes += 1
             else:
                 strikes += 1
@@ -85,7 +85,14 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
         at_bat_result = STRIKEOUT
     else:
         at_bat_result = WALK
-    outcome["result"] = at_bat_result
+
+    outcome = {
+        "pitches": pitches,
+        "foul_balls": foul_balls,
+        "result": at_bat_result,
+        "strikes": strikes,
+        "balls": balls,
+    }
 
     return outcome
 
