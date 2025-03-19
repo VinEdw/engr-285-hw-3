@@ -175,3 +175,38 @@ Looking at the energy vs time graphs, the energy increases over time at an incre
 An increase in energy was expected on account of the increase in amplitude.
 Since the energy changes continuously, a boost in energy is gained on each iteration of the Euler Method, 
 Thus, each iteration accumulates some error.
+
+= Problem 6
+
+Air resistance is notoriously difficult to model;
+as it turns out the most accurate models of air resistance are complicated functions of the speed.
+Consider a more general air resistance model, where we take the friction force to be proportional to the speed to an arbitrary power $alpha$:
+$
+(d v)/(d t) = -g - k v|v|^(alpha - 1)
+$
+We would ultimately like to compare the maximum height achieved by vertically thrown objects as we vary $alpha$.
+
+== Part a
+
+In order to compare these air resistance models, we should choose the proportionality constants so that the models have the same _terminal speed_ (i.e. the speed at which a _dropped_ object will not change its velocity; $(d v)/(d t) = 0$).
+Express the proportionality constant $k$ in terms of the terminal speed $v_oo$, the power $alpha$, and $g$.
+
+$(d v)/(d t) = 0 "when" v = -v_oo \
+0 = -g - k (-v_oo)|-v_oo|^(alpha - 1) \
+g = k v_oo (v_oo)^(alpha - 1) \
+g = k (v_oo)^alpha \
+k = g / (v_oo)^alpha \
+$
+
+== Parts b & c
+
+#[
+  #set enum(numbering: "a)", start: 2)
+
+  + From here we will work in units of time where $g = 1$ and units of distance where $v_oo = 1$ for convenience.
+    Write a program using the vector Euler Method that will determine the maximum height achieved by a vertically thrown object.
+    Choose a value for $v_0$ such that $0 < v_0 < 1$ and record the maximum height for 5 different values of $alpha$ such that $1 < alpha < 2$.
+  + Repeat the previous part for a different value of $v_0$ such that $v_0 > 1$.
+]
+
+#py_script("06")
