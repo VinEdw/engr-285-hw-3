@@ -7,10 +7,21 @@
 
 = Euler Method
 
+== Regular Euler Method
+
 $
 (d y)/(d x) &= f(x, y) \
 y(x_(i+1)) &approx y(x_i) + h dot f(x_i, y_i)
 $
+
+== Vector Euler Method
+
+$
+(d arrow(u))/(d t) &= arrow(f)(t, arrow(u)) quad "where" quad arrow(u)(t) = vec(x(t), y(t)) \
+arrow(u)_(i + 1) &approx arrow(u)_i + h dot arrow(f)(t_i, arrow(u)_i) \
+$
+
+== Python Program
 
 #py_script("euler_method", put_fname: true)
 
