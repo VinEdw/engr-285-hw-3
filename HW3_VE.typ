@@ -128,3 +128,50 @@ $
 
 #py_script("04_b")
 
+= Problem 5
+
+Error in the Euler Method is difficult to conceptualize outside of physical contexts;
+in this problem we will look at the degree of the violation of energy conservation present in Euler solutions of a simple spring-mass system.
+Consider the system
+$
+(d x)/(d t) = v quad "and" quad (d v)/(d t) = -k/m x
+$
+We'll choose $m = 1$ and $k = pi^2$ so that the period should be $T = 2$.
+
+#[
+  #set enum(numbering: "a)")
+
+  + Plot the trajectory of the mass over time $0 < t < 4$ with the initial conditions $x(0) = 1$ and $v(0) = 0$ for several different step sizes between 0.001 and 0.1.
+    Describe how you can tell visually from the trajectories whether there is significant error in the calculation, and describe how the magnitude of that error appears to change when the step size increases.
+  + The energy of the spring-mass system is given by
+    $ E(t) = 1/2 m [v(t)]^2 + 1/2 k [x(t)]^2 $
+    and theoretically should not change in time; i.e. $E(t) = E(0)$.
+    Add code to your program from part (a) to additionally calculate $E(t)$ and plot it as a function of time $0 < t < 4$ for three different step sizes between 0.001 and 0.1.
+    Comment on any trends that you observe.
+]
+
+#py_script("05")
+
+#{
+  for h in (0.1, 0.01, 0.001) {
+    let fname = "media/05_h_" + str(h) + ".svg"
+    figure(
+      image(fname, width: 90%),
+      caption: [Position vs Time & Energy vs Time ($h = #h$)],
+    )
+  }
+}
+
+The total energy of the system, and thus the amplitude, are supposed to remain constant.
+If the amplitude increases or decreases over time, then the total energy must be increasing or decreasing, which should not happen.
+
+In the position vs time graphs, the amplitude increases over time, indicating that the energy must be increasing too.
+There must be some error in the calculations using the Euler Method.
+The effect is more pronounced for larger step sizes ($h$).
+Larger step sizes lead to larger changes in amplitude and total energy.
+In other words, decreasing the step size reduces the error.
+
+Looking at the energy vs time graphs, the energy increases over time at an increasing rate.
+An increase in energy was expected on account of the increase in amplitude.
+Since the energy changes continuously, a boost in energy is gained on each iteration of the Euler Method, 
+Thus, each iteration accumulates some error.
