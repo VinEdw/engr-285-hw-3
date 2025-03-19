@@ -24,7 +24,7 @@
   )
 
   // Style raw blocks
-  show raw: it => block(fill: rgb("#E6E6E6"), inset: 1em, width: 100%, it)
+  show raw: it => block(fill: rgb("#E6E6E6"), inset: 0.6em, width: 100%, it)
 
   // Title
   stack(
