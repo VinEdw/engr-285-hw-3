@@ -7,7 +7,7 @@
 
 = Euler Method
 
-== Regular Euler Method
+== Simple Euler Method
 
 $
 (d y)/(d x) &= f(x, y) \
