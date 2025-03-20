@@ -4,9 +4,9 @@ rng = np.random.default_rng(seed=285)
 # Swing and At-Bat Results
 IN_FIELD_HIT = 0
 FOUL_BALL = 1
-MISS = 2
 STRIKEOUT = 3
 WALK = 4
+STRIKE = 2
 
 def simulate_pitch(p_strikezone):
     """
@@ -28,7 +28,7 @@ def simulate_swing_result(p_results):
     p_results is a list containing the probabilities of each possible result:
     - in-field hit
     - foul ball
-    - miss
+    - strike
     """
     random_num = rng.random()
     if random_num < p_results[0]:
@@ -36,7 +36,7 @@ def simulate_swing_result(p_results):
     elif random_num < p_results[0] + p_results[1]:
         return FOUL_BALL
     else:
-        return MISS
+        return STRIKE
 
 def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.3, 0.3], p_not_strikezone_results=[0.15, 0.35, 0.50]):
     """
