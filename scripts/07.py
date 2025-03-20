@@ -45,7 +45,7 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
     Return the outcome in a dictionary containing:
     - pitches
     - foul_balls
-    - result (an integer representing an in-field hit, a strikeout, or a miss)
+    - result (an integer representing an in-field hit, a strikeout, or a walk)
     - strikes
     - balls
     """
