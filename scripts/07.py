@@ -97,7 +97,7 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
 
     return outcome
 
-def calculate_outcome_probability(outcomes, result):
+def calculate_result_probability(outcomes, result):
     """
     Given a list of at-bat outcomes, calculate the probability of a specific result.
     Possible results:
@@ -120,9 +120,9 @@ for _ in range(trials):
 
 avg_pitches = np.mean([outcome["pitches"] for outcome in at_bat_outcomes])
 avg_foul_balls = np.mean([outcome["foul_balls"] for outcome in at_bat_outcomes])
-p_in_field_hit = calculate_outcome_probability(at_bat_outcomes, IN_FIELD_HIT)
-p_strikeout = calculate_outcome_probability(at_bat_outcomes, STRIKEOUT)
-p_walk = calculate_outcome_probability(at_bat_outcomes, WALK)
+p_in_field_hit = calculate_result_probability(at_bat_outcomes, IN_FIELD_HIT)
+p_strikeout = calculate_result_probability(at_bat_outcomes, STRIKEOUT)
+p_walk = calculate_result_probability(at_bat_outcomes, WALK)
 
 print(f"Average number of pitches: {avg_pitches}")
 print(f"Average number of foul balls: {avg_foul_balls}")
