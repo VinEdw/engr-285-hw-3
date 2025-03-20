@@ -39,9 +39,33 @@ def simulate_swing_result(p_results):
     else:
         return STRIKE
 
-def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.3, 0.3], p_not_strikezone_results=[0.15, 0.35, 0.50]):
+def simulate_single_at_bat(p_strikezone, p_swing, p_strikezone_results, p_not_strikezone_results):
     """
-    Simulate an at-bat with the given probabilities.
+    Simulate a single at-bat with the given probabilities.
+    Return an integer representing the result of the single at bat.
+    Possible results:
+    - in-field hit
+    - foul ball
+    - strike
+    - ball
+    """
+    pitch_in_strikezone = simulate_pitch(p_strikezone)
+    batter_swings = simulate_swing_decision(p_swing)
+    if batter_swings:
+        if pitch_in_strikezone:
+            swing_result = simulate_swing_result(p_strikezone_results)
+        else:
+            swing_result = simulate_swing_result(p_not_strikezone_results)
+        return swing_result
+    elif pitch_in_strikezone:
+        return STRIKE
+    else:
+        return BALL
+
+
+def simulate_complete_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.3, 0.3], p_not_strikezone_results=[0.15, 0.35, 0.50]):
+    """
+    Simulate an complete at-bat with the given probabilities.
     Return the outcome in a dictionary containing:
     - pitches
     - foul_balls
@@ -60,22 +84,13 @@ def simulate_at_bat(p_strikezone=0.5, p_swing=0.5, p_strikezone_results=[0.4, 0.
 
     while (strikes < strike_limit) and (balls < ball_limit) and not successful_hit:
         pitches += 1
-        pitch_in_strikezone = simulate_pitch(p_strikezone)
-        batter_swings = simulate_swing_decision(p_swing)
-        if batter_swings:
-            if pitch_in_strikezone:
-                swing_result = simulate_swing_result(p_strikezone_results)
-            else:
-                swing_result = simulate_swing_result(p_not_strikezone_results)
-
-            if swing_result == IN_FIELD_HIT:
-                successful_hit = True
-            elif swing_result == FOUL_BALL:
-                foul_balls += 1
-                if strikes < strike_limit - 1: strikes += 1
-            else:
-                strikes += 1
-        elif pitch_in_strikezone:
+        result = simulate_single_at_bat(p_strikezone, p_swing, p_strikezone_results, p_not_strikezone_results)
+        if result == IN_FIELD_HIT:
+            successful_hit = True
+        elif result == FOUL_BALL:
+            foul_balls += 1
+            if strikes < strike_limit - 1: strikes += 1
+        elif result == STRIKE:
             strikes += 1
         else:
             balls += 1
@@ -115,7 +130,7 @@ def calculate_result_probability(outcomes, result):
 trials = 100
 at_bat_outcomes = []
 for _ in range(trials):
-    outcome = simulate_at_bat()
+    outcome = simulate_complete_at_bat()
     at_bat_outcomes.append(outcome)
 
 avg_pitches = np.mean([outcome["pitches"] for outcome in at_bat_outcomes])
