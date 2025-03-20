@@ -122,7 +122,7 @@ def calculate_result_probability(outcomes, result):
     """
     N = len(outcomes)
     count = 0
-    for outcome in at_bat_outcomes:
+    for outcome in outcomes:
         if outcome["result"] == result:
             count += 1
     return count / N
