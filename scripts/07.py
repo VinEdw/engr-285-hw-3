@@ -4,9 +4,10 @@ rng = np.random.default_rng(seed=285)
 # Swing and At-Bat Results
 IN_FIELD_HIT = 0
 FOUL_BALL = 1
-STRIKEOUT = 3
-WALK = 4
 STRIKE = 2
+BALL = 3
+STRIKEOUT = 4
+WALK = 5
 
 def simulate_pitch(p_strikezone):
     """
