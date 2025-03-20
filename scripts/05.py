@@ -3,8 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def u_prime(t, u, m, k):
-    x = u[0]
-    v = u[1]
+    x, v = u
     return np.array([
         v,
         -k/m * x
