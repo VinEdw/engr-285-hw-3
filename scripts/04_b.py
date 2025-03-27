@@ -8,8 +8,8 @@ x_0 = 0
 x_f = 4
 y_0 = 1.5
 
-C = np.asinh(1 / np.tan(2.25))
-y_true = np.sqrt(np.atan2(1, np.sinh(C - 8/3)))
+insides = np.exp(-x_f**2 / 6) / np.tan(y_0**2 / 2)
+y_true = np.sqrt(2 * np.atan(1 / insides))
 threshold = 0.01
 
 h, y_estimate, relative_error = problem_04.maximize_h_within_error(x_0, x_f, y_0, f, y_true, threshold)

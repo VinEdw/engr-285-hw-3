@@ -110,7 +110,7 @@ $
 
 == Part b
 
-$6 y y' = x sin(y^2)$ subject to $y(0) = 1.5$
+$6 y y' = x sin(y^2)$ subject to $y(0) = 1.5 = 3/2$
 
 $6 y y' &= x sin(y^2) \
 (d y)/(d x) &= (x sin(y^2)) / (6 y) \
@@ -119,22 +119,58 @@ integral y / sin(y^2) d y &= integral x / 6 d x \
 integral y csc(y^2) d y &= integral x / 6 d x \
 -1/2 sinh^(-1)(cot(y^2)) &= 1/12 x^2 + C \
 sinh^(-1)(cot(y^2)) &= -1/6 x^2 + C \
-cot(y^2) &= sinh(-1/6 x^2 + C) \
-y^2 &= cot^(-1)[sinh(C - 1/6 x^2)] \
-y &= plus.minus sqrt(cot^(-1)[sinh(C - 1/6 x^2)]) \
-y &= sqrt(cot^(-1)[sinh(C - 1/6 x^2)]) \
+cot(y^2) &= sinh(C - 1/6 x^2) \
 $
 
-$underline(y(0) = 1.5) \
-1.5 &= plus.minus sqrt(cot^(-1)[sinh(C - 1/6 (0)^2)]) \
-2.25 &= cot^(-1)[sinh(C)] \
-cot(2.25) &= sinh(C) \
-C &= sinh^(-1)(cot(2.25)) \
+Using the trig identity found below, the equation can be simplified greatly.
+
+$cot(2 theta) &= cos(2 theta) / sin(2 theta) \
+cot(2 theta) &= (cos^2(theta) - sin^2(theta)) / (2 sin(theta) cos(theta)) \
+cot(2 theta) &= 1/2 cot(theta) - 1/(2 cot(theta)) \
+2 cot(2 theta) &= cot(theta) - 1/cot(theta) \
+2 cot(2 theta) cot(theta) &= cot^2(theta) - 1 \
+1 &= cot^2(theta) - 2 cot(2 theta) cot(theta) \
+1 + cot^2(2 theta) &= cot^2(theta) - 2 cot(2 theta) cot(theta) + cot^2(2 theta) \
+1 + cot^2(2 theta) &= (cot(theta) - cot(2 theta))^2 \
+plus.minus sqrt(1 + cot^2(2 theta)) &= cot(theta) - cot(2 theta) \
+cot(theta) &= cot(2 theta) plus.minus sqrt(1 + cot^2(2 theta)) \
+cot(y^2 / 2) &= cot(y^2) plus.minus sqrt(1 + cot^2(y^2)) \
 $
 
-$y &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 1/6 x^2)]) \
-y(4) &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 1/6 (4)^2)]) \
-y(4) &= sqrt(cot^(-1)[sinh(sinh^(-1)(cot(2.25)) - 8/3)]) approx 1.7536 \
+Since we have the initial condition $y(0) = 3/2$, it can be checked which version is valid in this case.
+
+$cot((3/2)^2 / 2) &approx 0.4779 \
+cot((3/2)^2) + sqrt(1 + cot^2((3/2)^2)) &approx 0.4779 \
+cot((3/2)^2) - sqrt(1 + cot^2((3/2)^2)) &approx -2.0926 \
+$
+
+Thus, $cot(y^2 / 2) &= cot(y^2) plus sqrt(1 + cot^2(y^2))$ should be used.
+
+#v(1em)
+
+$cot(y^2) &= sinh(C - 1/6 x^2) \
+cot(y^2 / 2) &= sinh(C - 1/6 x^2) + sqrt(1 + sinh^2(C - 1/6 x^2)) \
+cot(y^2 / 2) &= sinh(C - 1/6 x^2) + cosh(C - 1/6 x^2) \
+cot(y^2 / 2) &= e^(C - x^2 / 6) \
+cot(y^2 / 2) &= C e^(-x^2 / 6) \
+$
+
+$underline(y(0) = 3/2) \
+cot(1/2 (3/2)^2) &= C e^(-(0)^2 / 6) \
+C &= cot(9/8) \
+$
+
+$cot(y^2 / 2) &= cot(9/8) e^(-x^2 / 6) \
+y^2 / 2 &= cot^(-1)[e^(-x^2 / 6) cot(9/8)] \
+y &= plus.minus sqrt(2 cot^(-1)[e^(-x^2 / 6) cot(9/8)]) \
+y &= sqrt(2 cot^(-1)[e^(-x^2 / 6) cot(9/8)]) \
+$
+
+#v(1em)
+
+$y(4) &= sqrt(2 cot^(-1)[e^(-(4)^2 / 6) cot(9/8)]) \
+y(4) &= sqrt(2 cot^(-1)[e^(-8/3) cot(9/8)]) \
+y(4) &approx 1.7536 \
 $
 
 #py_script("04_b")
