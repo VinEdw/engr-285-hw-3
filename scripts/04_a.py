@@ -8,7 +8,7 @@ x_0 = 0
 x_f = 4
 y_0 = 0.05
 
-y_true = np.asin(np.sin(0.05) * np.exp(2))
+y_true = np.asin(np.sin(y_0) * np.exp(x_f / 2))
 threshold = 0.01
 
 h, y_estimate, relative_error = problem_04.maximize_h_within_error(x_0, x_f, y_0, f, y_true, threshold)
